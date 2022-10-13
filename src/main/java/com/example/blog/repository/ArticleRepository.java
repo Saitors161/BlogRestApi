@@ -11,4 +11,5 @@ import java.util.List;
 public interface ArticleRepository extends JpaRepository<Article, Integer> {
     @EntityGraph(attributePaths = {"category"})
     List<Article> findAll();
+    List<Article> findByCategoryId(Integer id);
 }

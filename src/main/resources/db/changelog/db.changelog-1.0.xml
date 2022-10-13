@@ -25,7 +25,6 @@
             <column name="image_path" type="VARCHAR(200)">
             </column>
             <column name="category_id" type="INT">
-                <constraints nullable="false" />
             </column>
         </createTable>
     </changeSet>

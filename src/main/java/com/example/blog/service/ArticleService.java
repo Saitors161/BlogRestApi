@@ -9,6 +9,8 @@ import java.util.List;
 public interface ArticleService {
     Article save(Article article);
 
+    List<Article> getByCategoryId(Integer id);
+
     Article getById(Integer id);
 
     List<Article> getAll();
