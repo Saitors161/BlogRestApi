@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1.0.0" author="mikhail.tsirdava">
+        <createTable tableName="articles" schemaName="blog_app">
+            <column name="id" type="INT" autoIncrement="true" >
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="created" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" >
+            </column>
+            <column name="updated" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" >
+            </column>
+            <column name="status" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="header" type="VARCHAR(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="VARCHAR(1000)" >
+            </column>
+            <column name="image_path" type="VARCHAR(200)">
+            </column>
+            <column name="category_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1.0.1" author="mikhail.tsirdava">
+        <createTable tableName="categories" schemaName="blog_app">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="created" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" >
+            </column>
+            <column name="updated" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" >
+            </column>
+            <column name="status" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="header" type="VARCHAR(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="VARCHAR(1000)" >
+            </column>
+            <column name="image_path" type="VARCHAR(200)">
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1.0.2" author="mikhail.tsirdava" >
+        <addForeignKeyConstraint baseTableName="articles" baseColumnNames="category_id" constraintName="fk_articles_category" referencedTableName="categories"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,21 @@
+server:
+  port: 8021
+application:
+  description: Test blog application
+  version: v1
+fileStorage: C:\Users\saitors\Documents\fileStorage
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blog_database?currentSchema=blog_app
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    url: jdbc:postgresql://localhost:5432/blog_database?currentSchema=blog_app
+    user: postgres
+    password: 1234
+  jpa:
+    show-sql: true
